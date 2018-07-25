@@ -91,12 +91,8 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     func isValidPhoneNumber(phoneNumber: String?) -> Bool {
         
         guard phoneNumber != nil else { return false }
-
-        //let regEx = "^((\\+)|(00))[0-9]{6,14}$"
-        //let regEx = "[235689][0-9]{6}([0-9]{3})?"
-        //let regEx = "^[0-9]{10}$"
         
-        let regEx = "(?\\d{3})?\\s\\d{3}-\\d{4}"
+        let regEx = "(\\+90|0)?[0-9]{10}"
         let pred = NSPredicate(format: "SELF MATCHES %@", regEx)
         
         return pred.evaluate(with: phoneNumber)
